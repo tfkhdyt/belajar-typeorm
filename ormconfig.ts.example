@@ -4,9 +4,9 @@ export const config: PostgresConnectionOptions = {
   type: 'postgres',
   host: 'localhost',
   port: 5432,
-  username: 'tfkhdyt',
-  password: '69420',
-  database: 'belajar-typeorm',
+  username: 'your_username',
+  password: 'your_password',
+  database: 'your_database',
   entities: ['dist/**/*.entity.js'],
   synchronize: process.env.NODE_ENV === 'development',
 }
