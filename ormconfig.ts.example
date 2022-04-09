@@ -9,4 +9,8 @@ export const config: PostgresConnectionOptions = {
   database: 'your_database',
   entities: ['dist/**/*.entity.js'],
   synchronize: process.env.NODE_ENV === 'development',
+  migrations: ['dist/src/db/migrations/*.js'],
+  cli: {
+    migrationsDir: './src/db/migrations/',
+  },
 }
