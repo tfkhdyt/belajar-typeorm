@@ -5,7 +5,7 @@ import { AppService } from './app.service'
 import { UsersModule } from './users/users.module'
 import { config } from '../ormconfig'
 import { ConfigModule } from '@nestjs/config'
-import { PetsModule } from './pets/pets.module';
+import { PetsModule } from './pets/pets.module'
 
 @Module({
   imports: [

@@ -1,3 +1,4 @@
+import { Type } from 'class-transformer'
 import { IsNumber, IsString } from 'class-validator'
 
 export class InsertDataDto {
@@ -5,5 +6,6 @@ export class InsertDataDto {
   name: string
 
   @IsNumber()
+  @Type(() => Number)
   userId: number
 }

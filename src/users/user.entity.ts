@@ -18,7 +18,7 @@ export class User {
   @Column({ nullable: true })
   lastName?: string
 
-  @OneToMany(() => Pet, (pet) => pet.user)
+  @OneToMany(() => Pet, (pet) => pet.user, { eager: true })
   @JoinColumn()
   pets: Pet[]
 }
