@@ -29,8 +29,8 @@ export class PetsController {
 
   @Post()
   insert(@Body() insertDataDto: InsertDataDto) {
-    const { name, userId } = insertDataDto
-    return this.petsService.insert(name, userId)
+    const { name, userId, speciesId } = insertDataDto
+    return this.petsService.insert(name, userId, speciesId)
   }
 
   @Patch(':petId')
@@ -38,8 +38,7 @@ export class PetsController {
     @Body() updateDataDto: UpdateDataDto,
     @Param('petId', ParseIntPipe) petId: number,
   ) {
-    const { name } = updateDataDto
-    return this.petsService.update(petId, name)
-    // throw new NotImplementedException()
+    const { name, speciesId } = updateDataDto
+    return this.petsService.update(petId, name, speciesId)
   }
 }

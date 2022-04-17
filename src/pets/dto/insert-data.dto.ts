@@ -7,5 +7,9 @@ export class InsertDataDto {
 
   @IsNumber()
   @Type(() => Number)
+  speciesId: number
+
+  @IsNumber()
+  @Type(() => Number)
   userId: number
 }

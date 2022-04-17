@@ -2,7 +2,7 @@ import { Pet } from 'src/pets/pet.entity'
 import {
   Column,
   Entity,
-  JoinColumn,
+  // JoinColumn,
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm'
@@ -19,6 +19,5 @@ export class User {
   lastName?: string
 
   @OneToMany(() => Pet, (pet) => pet.user, { eager: true })
-  @JoinColumn()
   pets: Pet[]
 }
