@@ -1,15 +1,6 @@
 import { Species } from 'src/species/species.entity'
 import { User } from 'src/users/user.entity'
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  JoinTable,
-  ManyToMany,
-  ManyToOne,
-  OneToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm'
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
 
 @Entity()
 export class Pet {
@@ -19,8 +10,10 @@ export class Pet {
   @Column()
   name: string
 
-  @ManyToMany(() => Species)
-  @JoinTable()
+  @ManyToOne(() => Species, (species) => species.pets, {
+    eager: true,
+    onDelete: 'SET NULL',
+  })
   species: Species
 
   @ManyToOne(() => User, (user) => user.pets, { onDelete: 'SET NULL' })

@@ -3,7 +3,6 @@ import {
   Controller,
   Delete,
   Get,
-  NotImplementedException,
   Param,
   ParseIntPipe,
   Patch,
@@ -38,11 +37,12 @@ export class SpeciesController {
     @Param('speciesId', ParseIntPipe) speciesId: number,
     @Body() updateSpeciesDto: UpdateSpeciesDto,
   ) {
-    throw new NotImplementedException()
+    const { name } = updateSpeciesDto
+    return this.speciesService.update(speciesId, name)
   }
 
   @Delete(':speciesId')
   delete(@Param('speciesId', ParseIntPipe) speciesId: number) {
-    throw new NotImplementedException()
+    return this.speciesService.delete(speciesId)
   }
 }

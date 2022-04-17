@@ -42,4 +42,18 @@ export class SpeciesService {
       throw new BadRequestException(err)
     })
   }
+
+  async update(speciesId: number, name?: string) {
+    const species = await this.findById(speciesId)
+    if (name) species.name = name
+
+    return this.speciesRepo.save(species).catch((err) => {
+      throw new BadRequestException(err)
+    })
+  }
+
+  async delete(speciesId: number) {
+    const user = await this.findById(speciesId)
+    return this.speciesRepo.remove(user)
+  }
 }

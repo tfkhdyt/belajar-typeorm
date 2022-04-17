@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Pet } from 'src/pets/pet.entity'
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
 
 @Entity()
 export class Species {
@@ -7,4 +8,7 @@ export class Species {
 
   @Column()
   name: string
+
+  @OneToMany(() => Pet, (pet) => pet.species, { onDelete: 'SET NULL' })
+  pets: Pet[]
 }
